@@ -1,0 +1,20 @@
+repos:
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.17.0
+    hooks:
+      - id: gitlint
+        stages: [commit-msg]
+  - repo: https://github.com/TekWizely/pre-commit-golang
+    rev: v1.0.0-beta.5
+    hooks:
+      - id: go-fumpt-repo
+        args: [ -w ]
+        stages: [commit]
+        always_run: true
+      - id: go-imports
+        args: [ -w ]
+        stages: [commit]
+        always_run: true
+      - id: golangci-lint-repo-mod
+        stages: [commit]
+        always_run: true
